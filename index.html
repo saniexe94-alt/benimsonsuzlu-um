@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بۆ سێلینی ژیانم... ❤️</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Tahoma', sans-serif;
+            overflow: hidden;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        h2 {
+            color: #d63384;
+            margin-bottom: 15px;
+        }
+        p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        input {
+            padding: 10px;
+            width: 80%;
+            border: 2px solid #ff758c;
+            border-radius: 10px;
+            margin-top: 15px;
+            outline: none;
+            text-align: center;
+            font-size: 16px;
+        }
+        button {
+            background: #ff758c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #ff527b;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card" id="step1">
+        <h2>🔒 قوفڵی دڵی سانی</h2>
+        <p>بۆ ئەوەی ئەم قوفڵە بکەیتەوە و نامەکە ببینی، وەڵامی ئەم پرسیارە بدەوە:<br><b>ناوی خۆشەویترین کەس لە ژیانی سانی‌دا کێیە؟</b></p>
+        <input type="text" id="answer" placeholder="ناوی لێرە بنووسە...">
+        <br>
+        <button onclick="checkAnswer()">کردنەوەی قوفڵ 🔑</button>
+        <p id="error" style="color: red; font-size: 14px; margin-top: 10px;"></p>
+    </div>
+
+    <div class="card hidden" id="step2">
+        <h2>✨ هەنگاوی یەکەم</h2>
+        <p>دەستخۆش سێلین گیان! قوفڵەکە کرایەوە. تۆ تەنها خۆشەویست نییت، بەڵکو باشترین ڕووناکی ژیانی منی.</p>
+        <button onclick="nextStep(3)">بڕۆ بۆ هەنگاوی داهاتوو ❤️</button>
+    </div>
+
+    <div class="card hidden" id="step3">
+        <h2>🌹 هەنگاوی دووەم</h2>
+        <p>کاتێک پێدەکەنی، هەموو دونیا بۆ من جوانتر دەبێت و هەموو خەمەکانم لەبیر دەکەم...</p>
+        <button onclick="nextStep(4)">دوایین هەنگاو ✨</button>
+    </div>
+
+    <div class="card hidden" id="step4">
+        <h2>👑 بۆ سێلینی جوان و شیرینم...</h2>
+        <p>لە نێوان هەموو ڕووخسار و دەنگ و ساتەکانی ئەم جیهانەدا، چاوی من تەنها تۆی بینی و دڵیشم تەنها تۆی هەڵبژارد. تۆ وەک تیشکی ڕۆژێکی گەرم و نەرم دەچیتە ناو ژیانمەوە و هەموو ڕۆژەکانمی پڕ لە جوانی و ئارامی کردووە.<br><br>هەمیشە سوپاسگوزارم کە لە ژیانمدایت، سێلین گیان. پێدەکەنینت، قسەکانت و بوونت، جوانترین بەشی ژیانمی.<br><br><b>هەمیشە و تا کۆتایی خۆشمدەوێیت... 🌹✨</b><br><br>💍💖 <b>لە سانییەکەتەوە بۆ تۆ</b></p>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            let ans = document.getElementById("answer").value.trim();
+            if (ans === "سێلین" || ans === "سێلین گیان") {
+                document.getElementById("step1").classList.add("hidden");
+                document.getElementById("step2").classList.remove("hidden");
+            } else {
+                document.getElementById("error").innerText = "نا، هەوڵ بدەوە! ناوی خۆت بنووسە 😉";
+            }
+        }
+
+        function nextStep(stepNum) {
+            if (stepNum === 3) {
+                document.getElementById("step2").classList.add("hidden");
+                document.getElementById("step3").classList.remove("hidden");
+            } else if (stepNum === 4) {
+                document.getElementById("step3").classList.add("hidden");
+                document.getElementById("step4").classList.remove("hidden");
+            }
+        }
+    </script>
+
+</body>
+</html>
